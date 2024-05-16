@@ -6,7 +6,7 @@ require "user.settings"
 -- https://github.com/folke/lazy.nvim?tab=readme-ov-file#-plugin-spec
 require "user.spec"
 
-spec "user.external.comment"
+spec "user.external.comment" -- Should I use the builtin comment text object now that it's stable?
 spec "user.external.treesitter"
 spec "user.external.gitsigns"
 spec "user.external.lspconfig"
