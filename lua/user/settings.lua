@@ -7,3 +7,7 @@ vim.opt.smartcase = true -- Ignorecase has to be true or this doesn't have any e
 
 vim.opt.cursorline = true -- The lines that help you locate the cursor
 vim.opt.cursorcolumn = true
+
+vim.api.nvim_set_hl(0, "Normal", { bg = "NONE" })
+vim.api.nvim_set_hl(0, "NormalNC", { bg = "NONE" })
+vim.api.nvim_set_hl(0, "EndOfBuffer", { bg = "NONE" })
