@@ -14,5 +14,12 @@ spec "user.external.telescope"
 
 require "user.lazy"
 
-local config_path = vim.fn.stdpath("config")
-package.path = package.path .. ";" .. config_path .. "/settings/init.lua;" .. config_path .. "/settings/?.lua" .. config_path .. "/settings/?/init.lua;"
+local config_path = vim.fn.stdpath "config"
+package.path = package.path
+  .. ";"
+  .. config_path
+  .. "/settings/init.lua;"
+  .. config_path
+  .. "/settings/?.lua"
+  .. config_path
+  .. "/settings/?/init.lua;"
