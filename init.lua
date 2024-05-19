@@ -20,6 +20,6 @@ package.path = package.path
   .. config_path
   .. "/settings/init.lua;"
   .. config_path
-  .. "/settings/?.lua"
+  .. "/settings/?.lua;"
   .. config_path
   .. "/settings/?/init.lua;"
