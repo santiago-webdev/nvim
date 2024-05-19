@@ -4,13 +4,13 @@ vim.loader.enable()
 -- https://github.com/folke/lazy.nvim?tab=readme-ov-file#-plugin-spec
 require "user.spec"
 
-spec "user.external.treesitter"
-spec "user.external.gitsigns"
-spec "user.external.lspconfig"
-spec "user.external.mason"
-spec "user.external.none-ls"
-spec "user.external.project"
-spec "user.external.telescope"
+spec "user.treesitter"
+spec "user.gitsigns"
+spec "user.lspconfig"
+spec "user.mason"
+spec "user.none-ls"
+spec "user.project"
+spec "user.telescope"
 
 require "user.lazy"
 
