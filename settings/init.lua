@@ -7,3 +7,5 @@ vim.opt.smartcase = true -- Ignorecase has to be true or this doesn't have any e
 
 vim.opt.cursorline = true -- The lines that help you locate the cursor
 vim.opt.cursorcolumn = true
+
+require "settings.keymaps"
