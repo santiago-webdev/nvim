@@ -14,6 +14,10 @@ vim.api.nvim_set_hl(0, "EndOfBuffer", { bg = "NONE" })
 vim.opt.laststatus = 0
 vim.opt.cmdheight = 0
 
+vim.api.nvim_set_hl(0, "Statusline", { link = "Normal" })
+vim.api.nvim_set_hl(0, "StatuslineNC", { link = "Normal" })
+vim.opt.statusline = "%{repeat('─',winwidth('.'))}"
+
 -- Gutter numbers, dynamically change based on mode
 vim.opt.number = true
 vim.opt.relativenumber = true
