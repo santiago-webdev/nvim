@@ -22,7 +22,6 @@ vim.opt.number = true
 vim.opt.relativenumber = true
 
 vim.api.nvim_create_autocmd({
-  "CmdlineEnter",
   "InsertEnter",
 }, {
   callback = function()
@@ -31,7 +30,6 @@ vim.api.nvim_create_autocmd({
 })
 
 vim.api.nvim_create_autocmd({
-  "CmdlineLeave",
   "InsertLeave",
 }, {
   callback = function()
