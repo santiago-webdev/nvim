@@ -1,53 +1,18 @@
 local M = {
   "hrsh7th/nvim-cmp",
   dependencies = {
-    {
-      "hrsh7th/cmp-nvim-lsp",
-      event = "InsertEnter",
-    },
-    {
-      "hrsh7th/cmp-buffer",
-      event = "InsertEnter",
-    },
-    {
-      "hrsh7th/cmp-path",
-      event = "InsertEnter",
-    },
-    {
-      "hrsh7th/cmp-cmdline",
-      event = "InsertEnter",
-    },
-    {
-      "saadparwaiz1/cmp_luasnip",
-      event = "InsertEnter",
-    },
-    {
-      "L3MON4D3/LuaSnip",
-      event = "InsertEnter",
-      -- dependencies = {
-      --   "rafamadriz/friendly-snippets",
-      -- },
-    },
-    {
-      "hrsh7th/cmp-nvim-lua",
-    },
-    -- {
-    --   "roobert/tailwindcss-colorizer-cmp.nvim",
-    -- },
+    { "hrsh7th/cmp-nvim-lsp", event = "InsertEnter" },
+    { "hrsh7th/cmp-buffer", event = "InsertEnter" },
+    { "hrsh7th/cmp-path", event = "InsertEnter" },
+    { "hrsh7th/cmp-cmdline", event = "InsertEnter" },
+    { "saadparwaiz1/cmp_luasnip", event = "InsertEnter" },
+    { "L3MON4D3/LuaSnip", event = "InsertEnter" },
+    { "hrsh7th/cmp-nvim-lua" },
   },
   event = "InsertEnter",
 }
 
 function M.config()
-  -- require("tailwindcss-colorizer-cmp").setup {
-  --   color_square_width = 2,
-  -- }
-
-  -- vim.api.nvim_set_hl(0, "CmpItemKindCopilot", { fg = "#6CC644" })
-  -- vim.api.nvim_set_hl(0, "CmpItemKindTabnine", { fg = "#CA42F0" })
-  -- vim.api.nvim_set_hl(0, "CmpItemKindCrate", { fg = "#F64D00" })
-  -- vim.api.nvim_set_hl(0, "CmpItemKindEmoji", { fg = "#FDE030" })
-
   local cmp = require "cmp"
   local luasnip = require "luasnip"
   require("luasnip/loaders/from_vscode").lazy_load()
@@ -140,7 +105,6 @@ function M.config()
           luasnip = "",
           buffer = "",
           path = "",
-          emoji = "",
         })[entry.source.name]
 
         if vim.tbl_contains({ "nvim_lsp" }, entry.source.name) then
@@ -239,21 +203,10 @@ function M.config()
           vim_item.kind_hl_group = "CmpItemKindTabnine"
         end
 
-        if entry.source.name == "crates" then
-          -- vim_item.kind = icons.misc.Package
-          vim_item.kind_hl_group = "CmpItemKindCrate"
-        end
-
         if entry.source.name == "lab.quick_data" then
           -- vim_item.kind = icons.misc.CircuitBoard
           vim_item.kind_hl_group = "CmpItemKindConstant"
         end
-
-        if entry.source.name == "emoji" then
-          -- vim_item.kind = icons.misc.Smiley
-          vim_item.kind_hl_group = "CmpItemKindEmoji"
-        end
-
         return vim_item
       end,
     },
@@ -279,15 +232,11 @@ function M.config()
         end,
       },
       { name = "luasnip" },
-      { name = "cmp_tabnine" },
       { name = "nvim_lua" },
       { name = "buffer" },
       { name = "path" },
       { name = "calc" },
-      { name = "emoji" },
       { name = "treesitter" },
-      { name = "crates" },
-      { name = "tmux" },
     },
     confirm_opts = {
       behavior = cmp.ConfirmBehavior.Replace,
