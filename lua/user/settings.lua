@@ -5,9 +5,15 @@ vim.opt.expandtab = true -- For insert mode, pressing TAB will insert spaces ins
 vim.opt.ignorecase = true -- Makes search feel more intuitive
 vim.opt.smartcase = true -- Ignorecase has to be true or this doesn't have any effect
 
-vim.opt.cursorline = true -- The lines that help you locate the cursor
+-- The lines that help you locate the cursor
+vim.opt.cursorline = true
 vim.opt.cursorcolumn = true
 
+-- Remove background from colorscheme
 vim.api.nvim_set_hl(0, "Normal", { bg = "NONE" })
 vim.api.nvim_set_hl(0, "NormalNC", { bg = "NONE" })
 vim.api.nvim_set_hl(0, "EndOfBuffer", { bg = "NONE" })
+
+-- Hide status and command line
+vim.opt.laststatus = 0
+vim.opt.cmdheight = 0
