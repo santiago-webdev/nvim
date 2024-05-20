@@ -16,7 +16,7 @@ vim.opt.cmdheight = 0
 
 vim.api.nvim_set_hl(0, "Statusline", { link = "Normal" })
 vim.api.nvim_set_hl(0, "StatuslineNC", { link = "Normal" })
-vim.opt.statusline = "%{repeat('─',winwidth('.'))}"
+-- vim.opt.statusline = "%{repeat('─',winwidth('.'))}" -- How do you do this in lua?
 
 -- Gutter numbers, dynamically change based on mode
 vim.opt.number = true
