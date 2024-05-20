@@ -15,5 +15,6 @@ spec "user.none-ls"
 spec "user.project"
 spec "user.telescope"
 spec "user.cmp"
+spec "user.indentlines"
 
 require "user.lazy"
