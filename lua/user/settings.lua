@@ -14,9 +14,15 @@ vim.api.nvim_set_hl(0, "EndOfBuffer", { bg = "NONE" })
 vim.opt.laststatus = 0
 vim.opt.cmdheight = 0
 
+-- This is embarrasing
+-- https://github.com/neovim/neovim/issues/20221
+-- And here the solution
+-- https://github.com/neovim/neovim/issues/18965
 vim.api.nvim_set_hl(0, "Statusline", { link = "Normal" })
 vim.api.nvim_set_hl(0, "StatuslineNC", { link = "Normal" })
--- vim.opt.statusline = "%{repeat('─',winwidth('.'))}" -- How do you do this in lua?
+vim.opt.statusline = "%{repeat('─',winwidth('.'))}" -- How do you do this in lua?
+local cancel_statusline = string.rep("-", vim.api.nvim_win_get_width(0))
+vim.opt.statusline = cancel_statusline
 
 -- Gutter numbers, dynamically change based on mode
 vim.opt.number = true
