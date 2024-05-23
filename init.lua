@@ -16,5 +16,6 @@ spec "user.project"
 spec "user.telescope"
 spec "user.cmp"
 spec "user.indentlines"
+spec "user.firenvim"
 
 require "user.lazy"
