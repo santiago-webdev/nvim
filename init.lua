@@ -7,6 +7,7 @@ require "user.keymaps"
 -- https://github.com/folke/lazy.nvim?tab=readme-ov-file#-plugin-spec
 require "user.spec"
 
+-- Plugins {{{
 spec "user.treesitter"
 spec "user.gitsigns"
 spec "user.lspconfig"
@@ -17,5 +18,7 @@ spec "user.telescope"
 spec "user.cmp"
 spec "user.indentlines"
 spec "user.firenvim"
+-- }}}
 
 require "user.lazy"
+-- vim:fdm=marker
