@@ -3,7 +3,8 @@ vim.opt.confirm = true -- Instead of failing to exit because there's unsaved cha
 vim.opt.expandtab = true -- For insert mode, pressing TAB will insert spaces instead
 vim.opt.ignorecase = true -- Makes search feel more intuitive
 vim.opt.smartcase = true -- Ignorecase has to be true or this doesn't have any effect
-vim.opt.scrolloff = 9999
+vim.opt.scrolloff = 9999 -- Keep the cursor centered
+vim.opt.autowrite = true
 
 -- Remove background from colorscheme
 vim.api.nvim_set_hl(0, "Normal", { bg = "NONE" })
