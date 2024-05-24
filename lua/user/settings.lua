@@ -49,3 +49,8 @@ vim.api.nvim_create_autocmd({
 vim.api.nvim_create_autocmd("TextYankPost", {
   command = "lua vim.highlight.on_yank()",
 })
+
+vim.api.nvim_create_autocmd("BufWritePre", {
+  once = true,
+  command = "lua vim.fn.mkdir(vim.fn.expand('%:p:h'), 'p')",
+})
