@@ -63,12 +63,11 @@ vim.api.nvim_create_autocmd("BufWritePre", {
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 -- }}}
-
+-- Plugins {{{
 -- Function to import files that return plugin specs in table format for lazy.nvim to manage
 -- https://github.com/folke/lazy.nvim?tab=readme-ov-file#-plugin-spec
 require "user.spec"
 
--- Plugins {{{
 spec "user.treesitter"
 spec "user.gitsigns"
 spec "user.lspconfig"
@@ -79,7 +78,8 @@ spec "user.telescope"
 spec "user.cmp"
 spec "user.indentlines"
 spec "user.firenvim"
--- }}}
 
 require "user.lazy"
+-- }}}
+
 -- vim:fdm=marker
