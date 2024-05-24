@@ -9,6 +9,17 @@ vim.opt.smartcase = true -- Ignorecase has to be true or this doesn't have any e
 vim.opt.scrolloff = 9999 -- Keep the cursor centered
 vim.opt.autowrite = true
 vim.fn.matchadd("ErrorMsg", "\\s\\+$") -- Use 'ErrorMsg' highlight group for whitespace in file
+vim.g.have_nerd_font = true
+vim.opt.mouse = 'a'
+vim.opt.undofile = true
+vim.opt.timeoutlen = 300
+
+vim.opt.list = true
+vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
+
+-- Configure how new splits should be opened
+vim.opt.splitright = true
+vim.opt.splitbelow = true
 
 -- Remove background from colorscheme
 vim.api.nvim_set_hl(0, "Normal", { bg = "NONE" })
