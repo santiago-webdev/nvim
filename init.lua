@@ -92,6 +92,7 @@ spec "user.telescope"
 spec "user.cmp"
 spec "user.indentlines"
 spec "user.firenvim"
+spec "user.ufo"
 
 require "user.lazy"
 -- }}}
