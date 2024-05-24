@@ -193,11 +193,6 @@ function M.config()
           -- return vim_item
         end
 
-        if entry.source.name == "copilot" then
-          -- vim_item.kind = icons.git.Octoface
-          vim_item.kind_hl_group = "CmpItemKindCopilot"
-        end
-
         if entry.source.name == "cmp_tabnine" then
           -- vim_item.kind = icons.misc.Robot
           vim_item.kind_hl_group = "CmpItemKindTabnine"
@@ -211,7 +206,6 @@ function M.config()
       end,
     },
     sources = {
-      { name = "copilot" },
       {
         name = "nvim_lsp",
         entry_filter = function(entry, ctx)
