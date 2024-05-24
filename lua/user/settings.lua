@@ -5,6 +5,7 @@ vim.opt.ignorecase = true -- Makes search feel more intuitive
 vim.opt.smartcase = true -- Ignorecase has to be true or this doesn't have any effect
 vim.opt.scrolloff = 9999 -- Keep the cursor centered
 vim.opt.autowrite = true
+vim.fn.matchadd("ErrorMsg", "\\s\\+$") -- Use 'ErrorMsg' highlight group for whitespace in file
 
 -- Remove background from colorscheme
 vim.api.nvim_set_hl(0, "Normal", { bg = "NONE" })
