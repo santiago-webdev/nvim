@@ -1,6 +1,5 @@
-vim.loader.enable()
-
 -- Settings {{{
+vim.loader.enable()
 vim.opt.clipboard = "unnamedplus" -- Share the clipboard with your DE/OS
 vim.opt.confirm = true -- Instead of failing to exit because there's unsaved changes, it will ask for confirmation
 vim.opt.ignorecase = true -- Makes search feel more intuitive
