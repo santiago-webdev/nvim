@@ -15,12 +15,12 @@ vim.opt.fillchars:append { eob = "␗" }
 vim.opt.inccommand = "split"
 vim.opt.list = true
 vim.opt.listchars = { tab = "» ", trail = "·", nbsp = "␣" }
-vim.opt.showbreak = '↪ ' -- Symbol prepended to wrapped lines
-vim.opt.cpoptions = vim.o.cpoptions .. 'n' -- Include showbreak inside gutter
-vim.opt.virtualedit = 'all'
+vim.opt.showbreak = "↪ " -- Symbol prepended to wrapped lines
+vim.opt.cpoptions = vim.o.cpoptions .. "n" -- Include showbreak inside gutter
+vim.opt.virtualedit = "all"
 
 -- Which motions are allowed to move to next/previous lines when they reach the end/start of a line
-vim.opt.whichwrap = 'h,l,b,s,<,>,[,]'
+vim.opt.whichwrap = "h,l,b,s,<,>,[,]"
 
 -- Keep the cursor centered
 vim.opt.scrolloff = 9999
@@ -52,9 +52,7 @@ vim.opt.laststatus = 0 -- When and how is the statusline going to be shown
 vim.opt.cmdheight = 0 -- hide command line
 vim.api.nvim_set_hl(0, "Statusline", { link = "Normal" })
 vim.api.nvim_set_hl(0, "StatuslineNC", { link = "Normal" })
-vim.opt.statusline = "%{repeat('─',winwidth('.'))}" -- How do you do this in lua?
-local cancel_statusline = string.rep("─", vim.api.nvim_win_get_width(0))
-vim.opt.statusline = cancel_statusline
+vim.opt.statusline = "%#Comment#" .. string.rep("─", vim.api.nvim_win_get_width(0)) .. "%*"
 
 -- Gutter numbers at the start of neovim
 vim.opt.number = true
