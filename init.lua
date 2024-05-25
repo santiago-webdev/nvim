@@ -11,6 +11,7 @@ vim.g.have_nerd_font = true
 vim.opt.mouse = "a"
 vim.opt.undofile = true
 vim.opt.timeoutlen = 300
+vim.opt.fillchars:append { eob = "␗" }
 
 vim.opt.list = true
 vim.opt.listchars = { tab = "» ", trail = "·", nbsp = "␣" }
