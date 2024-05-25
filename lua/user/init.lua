@@ -78,6 +78,7 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 
 vim.api.nvim_create_autocmd("BufWritePre", {
   once = true,
+  desc = "Create the path or directory structure if it's missing when you save a file",
   command = "lua vim.fn.mkdir(vim.fn.expand('%:p:h'), 'p')",
 })
 
