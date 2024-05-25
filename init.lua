@@ -1,2 +1,2 @@
-require 'user.settings'
+require 'user'
 require 'user.plugins'
