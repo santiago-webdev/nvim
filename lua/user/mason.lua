@@ -17,7 +17,6 @@ M.execs = {
   -- "jsonls",
   -- "yamlls",
   -- "marksman",
-  -- "tailwindcss",
   -- "rust_analyzer",
   -- "eslint",
 }

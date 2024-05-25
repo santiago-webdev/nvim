@@ -77,7 +77,6 @@ function M.config()
     "jsonls",
     "yamlls",
     "marksman",
-    "tailwindcss",
     "eslint",
     -- "taplo",
     -- "rust_analyzer",

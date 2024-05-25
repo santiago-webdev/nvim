@@ -160,7 +160,6 @@ function M.config()
 
             return vim_item
           elseif #words < 3 or #words > 4 then
-            -- doesn't look like this is a tailwind css color
             return vim_item
           end
 
@@ -169,17 +168,6 @@ function M.config()
           end
 
           local color_index = tonumber(color_number)
-          local tailwindcss_colors = require("tailwindcss-colorizer-cmp.colors").TailwindcssColors
-
-          if not tailwindcss_colors[color_name] then
-            return vim_item
-          end
-
-          if not tailwindcss_colors[color_name][color_index] then
-            return vim_item
-          end
-
-          local color = tailwindcss_colors[color_name][color_index]
 
           local hl_group = "lsp_documentColor_mf_" .. color
           -- vim.api.nvim_set_hl(0, hl_group, { fg = "#" .. color, bg = "#" .. color })
