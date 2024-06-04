@@ -8,5 +8,6 @@ vim.filetype.add {
     [".npmignore"] = "ignore",
     ["tsconfig.tsbuildinfo"] = "json",
     ["Brewfile"] = "ruby",
+    [".editorconfig"] = "ini",
   },
 }
