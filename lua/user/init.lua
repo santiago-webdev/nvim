@@ -82,5 +82,10 @@ vim.api.nvim_create_autocmd("BufWritePre", {
   command = "lua vim.fn.mkdir(vim.fn.expand('%:p:h'), 'p')",
 })
 
+vim.api.nvim_create_autocmd("BufWinEnter", {
+  desc = "Restore cursor at the last visited position",
+  command = 'silent! normal! g`"zv',
+})
+
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
