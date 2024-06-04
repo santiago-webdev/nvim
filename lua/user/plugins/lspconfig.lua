@@ -1,10 +1,16 @@
 local M = {
   "neovim/nvim-lspconfig",
-  event = { "BufReadPre", "BufNewFile" },
   dependencies = {
     {
-      "folke/neodev.nvim",
+      "folke/lazydev.nvim",
+      ft = "lua",
+      opts = {
+        library = { -- See the configuration section for more details Load luvit types when the `vim.uv` word is found
+          { path = "luvit-meta/library", words = { "vim%.uv" } },
+        },
+      },
     },
+    { "Bilal2453/luvit-meta", lazy = true },
   },
 }
 
@@ -119,10 +125,6 @@ function M.config()
     local require_ok, settings = pcall(require, "user.lspsettings." .. server)
     if require_ok then
       opts = vim.tbl_deep_extend("force", settings, opts)
-    end
-
-    if server == "lua_ls" then
-      require("neodev").setup {}
     end
 
     lspconfig[server].setup(opts)
