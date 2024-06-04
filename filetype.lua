@@ -1,12 +1,12 @@
-vim.filetype.add({
+vim.filetype.add {
   extension = {
-    mdx = 'markdown'
-  }
-})
-vim.filetype.add({
+    mdx = "markdown",
+  },
+}
+vim.filetype.add {
   filename = {
-    [".npmignore"] = 'ignore',
-    ["tsconfig.tsbuildinfo"] = 'json',
-    ["Brewfile"] = 'ruby'
-  }
-})
+    [".npmignore"] = "ignore",
+    ["tsconfig.tsbuildinfo"] = "json",
+    ["Brewfile"] = "ruby",
+  },
+}
