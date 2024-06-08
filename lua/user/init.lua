@@ -87,5 +87,5 @@ vim.api.nvim_create_autocmd("BufWinEnter", {
   command = 'silent! normal! g`"zv',
 })
 
-vim.g.mapleader = " "
-vim.g.maplocalleader = " "
+vim.g.mapleader = "<Space>"
+vim.g.maplocalleader = "<Space>"
