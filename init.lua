@@ -15,4 +15,5 @@ spec "user.plugins.treesitter" -- Syntax
 spec "user.plugins.cmp" -- Completion
 spec "user.plugins.comment" -- Comments
 spec "user.plugins.ufo" -- Folds
+
 require "user.plugins.lazy" -- Plugin installer
