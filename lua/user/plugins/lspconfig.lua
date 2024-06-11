@@ -29,7 +29,8 @@ local function lsp_keymaps(bufnr)
   keymap(bufnr, "n", "gI", "<cmd>lua vim.lsp.buf.implementation()<CR>", opts)
   keymap(bufnr, "n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>", opts)
   keymap(bufnr, "n", "gl", "<cmd>lua vim.diagnostic.open_float()<CR>", opts)
-  vim.keymap.set("n", "gd", vim.lsp.buf.definition)
+  vim.keymap.set("n", "gf", vim.lsp.buf.definition)
+  vim.keymap.set("n", "gd", vim.lsp.buf.definition) -- I'm unsure which one is better for this keymap
 end
 
 M.on_attach = function(client, bufnr)
