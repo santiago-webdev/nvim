@@ -26,5 +26,8 @@ end
 vim.keymap.set("n", "<Leader>tf", function()
   require("telescope.builtin").find_files()
 end)
+vim.keymap.set("n", "<c-p>", function()
+  require("telescope").extensions.projects.projects()
+end)
 
 return M
