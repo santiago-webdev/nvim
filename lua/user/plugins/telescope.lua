@@ -23,4 +23,8 @@ function M.config()
   }
 end
 
+vim.keymap.set('n', '<Leader>tf', function ()
+  require'telescope.builtin'.find_files()
+end)
+
 return M
