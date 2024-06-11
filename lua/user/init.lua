@@ -57,17 +57,15 @@ vim.opt.statusline = "%#Comment#" .. string.rep("─", vim.api.nvim_win_get_widt
 vim.opt.number = true
 vim.opt.relativenumber = true
 
-vim.api.nvim_create_autocmd({
-  "InsertEnter",
-  "InsertLeave",
-}, {
-  desc = "Dynamically adapt the gutter style based on mode",
+vim.api.nvim_create_autocmd("InsertLeave", {
   callback = function()
-    if vim.o.relativenumber then
-      vim.o.relativenumber = false
-      return
-    end
-    vim.opt.relativenumber = true
+    vim.o.relativenumber = true
+  end,
+})
+
+vim.api.nvim_create_autocmd("InsertEnter", {
+  callback = function()
+    vim.o.relativenumber = false
   end,
 })
 
