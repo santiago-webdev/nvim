@@ -1,4 +1,4 @@
-"{{{
+" settings {{{
 lua vim.loader.enable()
 
 let g:var="alpPrj"
@@ -60,8 +60,7 @@ augroup highlight_yanked_text
   autocmd TextYankPost * lua vim.highlight.on_yank()
 augroup END
 "}}}
-
-"{{{
+" plugins lua {{{
 lua << EOF
   require "user.plugins.spec"
   spec "user.plugins.gitsigns"
@@ -82,5 +81,4 @@ lua << EOF
   require "user.plugins.lazy" -- Plugin installer
 EOF
 "}}}
-
 " vim:fdm=marker
