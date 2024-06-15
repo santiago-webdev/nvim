@@ -1,3 +1,4 @@
+" vim:fdm=marker
 " settings {{{
 lua vim.loader.enable()
 
@@ -49,16 +50,22 @@ lua vim.opt.statusline = "%#Comment#" .. string.rep("─", vim.api.nvim_win_get_
 set number
 set relativenumber
 
-augroup dynamic_number_change
+augroup vimrc-dynamic_number_change
   autocmd!
   autocmd InsertEnter * set norelativenumber
   autocmd InsertLeave * set relativenumber
 augroup END
 
-augroup highlight_yanked_text
+augroup vimrc-highlight_yanked_text
   autocmd!
   autocmd TextYankPost * lua vim.highlight.on_yank()
 augroup END
+
+augroup vimrc-remember-cursor-position
+    autocmd!
+    autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
+augroup END
+
 "}}}
 " plugins lua {{{
 lua << EOF
@@ -81,4 +88,3 @@ lua << EOF
   require "user.plugins.lazy" -- Plugin installer
 EOF
 "}}}
-" vim:fdm=marker
