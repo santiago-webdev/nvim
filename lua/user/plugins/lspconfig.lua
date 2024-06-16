@@ -10,7 +10,7 @@ local M = {
         },
       },
     },
-    { "Bilal2453/luvit-meta", lazy = true },
+    { "Bilal2453/luvit-meta" },
   },
 }
 
@@ -31,6 +31,7 @@ local function lsp_keymaps(bufnr)
   keymap(bufnr, "n", "gl", "<cmd>lua vim.diagnostic.open_float()<CR>", opts)
   vim.keymap.set("n", "gf", vim.lsp.buf.definition)
   vim.keymap.set("n", "gd", vim.lsp.buf.definition) -- I'm unsure which one is better for this keymap
+  vim.keymap.set("n", "<Leader>cgn", vim.lsp.buf.rename)
 end
 
 M.on_attach = function(client, bufnr)

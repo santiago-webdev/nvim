@@ -6,19 +6,19 @@ local M = {
   },
 }
 
-M.execs = {
+M.ensure_installed = {
   "lua_ls",
-  -- "cssls",
-  -- "html",
-  -- "tsserver",
-  -- "astro",
-  -- "pyright",
-  -- "bashls",
-  -- "jsonls",
-  -- "yamlls",
-  -- "marksman",
-  -- "rust_analyzer",
-  -- "eslint",
+  "cssls",
+  "html",
+  "tsserver",
+  "astro",
+  "pyright",
+  "bashls",
+  "jsonls",
+  "yamlls",
+  "marksman",
+  "rust_analyzer",
+  "eslint",
 }
 
 function M.config()
@@ -28,7 +28,7 @@ function M.config()
     },
   }
   require("mason-lspconfig").setup {
-    ensure_installed = M.execs,
+    ensure_installed = M.ensure_installed,
   }
 end
 
