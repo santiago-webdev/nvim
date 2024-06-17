@@ -10,7 +10,7 @@ local M = {
 
 function M.config()
   require("nvim-treesitter.configs").setup {
-    ensure_installed = { "lua", "markdown", "markdown_inline", "bash", "python" },
+    ensure_installed = { "lua" },
     ignore_install = { "" },
     sync_install = false,
     highlight = {
@@ -24,7 +24,6 @@ function M.config()
       enable = true,
       disable = { "yaml" },
     },
-    autopairs = { enable = true },
     textobjects = {
       select = {
         enable = true,

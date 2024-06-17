@@ -31,8 +31,10 @@ set noshowmode
 set noruler
 set noshowcmd
 
+" set leader key
 let mapleader = ";"
 let localmapleader = ";"
+
 map <Esc> <cmd>nohlsearch<CR>
 
 highlight Normal NONE
