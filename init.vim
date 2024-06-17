@@ -35,8 +35,6 @@ set noshowcmd
 let mapleader = ";"
 let localmapleader = ";"
 
-map <Esc> <cmd>nohlsearch<CR>
-
 highlight Normal NONE
 highlight NormalNC NONE
 highlight EndOfBuffer NONE
