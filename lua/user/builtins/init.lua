@@ -82,7 +82,7 @@ vim.api.nvim_create_autocmd("BufReadPost", {
 vim.api.nvim_create_autocmd("BufWritePre", {
   desc = "Before writing a file, create necessary directories if missing",
   once = true,
-  callback = function ()
-    vim.fn.mkdir(vim.fn.expand('%:p:h'), 'p')
-  end
+  callback = function()
+    vim.fn.mkdir(vim.fn.expand "%:p:h", "p")
+  end,
 })
