@@ -12,14 +12,10 @@ vim.opt.autowrite = true
 vim.opt.mouse = "a"
 vim.opt.undofile = true
 vim.opt.timeoutlen = 300
-vim.opt.fillchars:append { eob = '␗'}
 vim.opt.inccommand = "split"
 vim.opt.list = true
-vim.opt.listchars:append { tab = "» ", trail = "·", nbsp = "␣" }
 vim.opt.showbreak = "↪ "
-vim.opt.cpoptions:append "n"
 vim.opt.virtualedit = "all"
-vim.opt.whichwrap:append "h,l,<,>,~,[,]"
 vim.opt.scrolloff = 9999
 vim.opt.sidescrolloff = 999
 vim.opt.cursorline = true
@@ -30,6 +26,11 @@ vim.opt.hlsearch = true
 vim.opt.showmode = false
 vim.opt.ruler = false
 vim.opt.showcmd = false
+
+vim.opt.cpoptions:append "n"
+vim.opt.fillchars:append { eob = "␗" }
+vim.opt.listchars:append { tab = "» ", trail = "·", nbsp = "␣" }
+vim.opt.whichwrap:append "h,l,<,>,~,[,]"
 
 -- This is embarrasing
 -- https://github.com/neovim/neovim/issues/20221
