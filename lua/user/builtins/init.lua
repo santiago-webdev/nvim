@@ -77,3 +77,12 @@ vim.api.nvim_create_autocmd("BufReadPost", {
   group = vim.api.nvim_create_augroup("RememberCursorPosition", { clear = false }),
   command = [[if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | endif]],
 })
+
+-- Before writing a file, create necessary directories if missing
+vim.api.nvim_create_autocmd("BufWritePre", {
+  desc = "Before writing a file, create necessary directories if missing",
+  once = true,
+  callback = function ()
+    vim.fn.mkdir(vim.fn.expand('%:p:h'), 'p')
+  end
+})
