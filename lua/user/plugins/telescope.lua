@@ -1,33 +1,29 @@
 local M = {
   "nvim-telescope/telescope.nvim",
-  cmd = "Telescope",
-  dependencies = {
-    {
-      "nvim-telescope/telescope-fzf-native.nvim",
-      build = "make",
-      cmd = "Telescope",
-    },
+  cmd = {
+    "Telescope",
+  },
+  keys = {
+    "<Leader>tf",
+    "<Leader>tb",
+    "<Leader><C-p>",
   },
 }
 
 function M.config()
-  require("telescope").setup {
-    extensions = {
-      fzf = {
-        fuzzy = true, -- false will only do exact matching
-        override_generic_sorter = true, -- override the generic sorter
-        override_file_sorter = true, -- override the file sorter
-        case_mode = "smart_case", -- or "ignore_case" or "respect_case"
-      },
-    },
-  }
-end
+  -- require("telescope").setup()
 
-vim.keymap.set("n", "<Leader>tf", function()
-  require("telescope.builtin").find_files()
-end)
-vim.keymap.set("n", "<c-p>", function()
-  require("telescope").extensions.projects.projects()
-end)
+  vim.keymap.set("n", "<Leader>tf", function()
+    require("telescope.builtin").find_files()
+  end)
+
+  vim.keymap.set("n", "<Leader>tb", function()
+    require("telescope.builtin").buffers()
+  end)
+
+  vim.keymap.set("n", "<Leader><C-p>", function()
+    require("telescope").extensions.projects.projects()
+  end)
+end
 
 return M
