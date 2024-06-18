@@ -11,7 +11,9 @@ vim.opt.smartcase = true
 vim.opt.autowrite = true
 vim.opt.mouse = "a"
 vim.opt.undofile = true
+vim.opt.updatetime = 300
 vim.opt.timeoutlen = 300
+vim.opt.ttimeoutlen = 10
 vim.opt.inccommand = "split"
 vim.opt.list = true
 vim.opt.showbreak = "↪ "
@@ -26,11 +28,22 @@ vim.opt.hlsearch = true
 vim.opt.showmode = false
 vim.opt.ruler = false
 vim.opt.showcmd = false
+vim.opt.linebreak = true
 
-vim.opt.cpoptions:append "n"
+vim.opt.cpoptions:append {
+  n = true,
+}
 vim.opt.fillchars:append { eob = "␗" }
 vim.opt.listchars:append { tab = "» ", trail = "·", nbsp = "␣" }
-vim.opt.whichwrap:append "h,l,<,>,~,[,]"
+vim.opt.whichwrap:append {
+  h = true,
+  l = true,
+  ["<"] = true,
+  [">"] = true,
+  ["~"] = true,
+  ["["] = true,
+  ["]"] = true,
+}
 
 -- This is embarrasing
 -- https://github.com/neovim/neovim/issues/20221
