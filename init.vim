@@ -1,2 +1,2 @@
-lua require 'user.builtins'
-lua require 'user.plugins'
+lua require "user.builtins"
+lua require "user.plugins"

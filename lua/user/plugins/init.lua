@@ -8,6 +8,8 @@ spec "user.plugins.firenvim"
 spec "user.plugins.lspconfig"
 spec "user.plugins.mason"
 spec "user.plugins.none-ls"
+
+-- Plugins that replace builtin tooling
 spec "user.plugins.treesitter"
 spec "user.plugins.cmp"
 spec "user.plugins.comment"
