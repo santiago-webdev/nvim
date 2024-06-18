@@ -12,14 +12,14 @@ vim.opt.autowrite = true
 vim.opt.mouse = "a"
 vim.opt.undofile = true
 vim.opt.timeoutlen = 300
--- vim.opt.fillchars+=eob:␗
--- vim.opt.inccommand=split
+vim.opt.fillchars:append { eob = '␗'}
+vim.opt.inccommand = "split"
 vim.opt.list = true
--- vim.opt.listchars+=tab:»\ ,trail:·,nbsp:␣
+vim.opt.listchars:append { tab = "» ", trail = "·", nbsp = "␣" }
 vim.opt.showbreak = "↪ "
--- vim.opt.cpoptions+=n
+vim.opt.cpoptions:append "n"
 vim.opt.virtualedit = "all"
--- vim.opt.whichwrap+=h,l,<,>,[,]
+vim.opt.whichwrap:append "h,l,<,>,~,[,]"
 vim.opt.scrolloff = 9999
 vim.opt.sidescrolloff = 999
 vim.opt.cursorline = true
@@ -43,10 +43,10 @@ vim.opt.statusline = "%#Comment#" .. string.rep("─", vim.api.nvim_win_get_widt
 vim.opt.number = true
 vim.opt.relativenumber = true
 
-local dynamic_gutter_numbers = vim.api.nvim_create_augroup('DynamicGutterNumbers', { clear = false})
+local dynamic_gutter_numbers = vim.api.nvim_create_augroup("DynamicGutterNumbers", { clear = false })
 
 vim.api.nvim_create_autocmd("InsertLeave", {
-  desc= 'Dynamic gutter numbers, they change based on mode',
+  desc = "Dynamic gutter numbers, they change based on mode",
   group = dynamic_gutter_numbers,
   callback = function()
     vim.opt.relativenumber = true
@@ -54,9 +54,25 @@ vim.api.nvim_create_autocmd("InsertLeave", {
 })
 
 vim.api.nvim_create_autocmd("InsertEnter", {
-  desc= 'Dynamic gutter numbers, they change based on mode',
+  desc = "Dynamic gutter numbers, they change based on mode",
   group = dynamic_gutter_numbers,
   callback = function()
     vim.opt.relativenumber = false
   end,
+})
+
+-- Visual feedback when yanking text
+vim.api.nvim_create_autocmd("TextYankPost", {
+  desc = "Visual feedback when yanking text",
+  group = vim.api.nvim_create_augroup("YankFeedback", { clear = false }),
+  callback = function()
+    vim.highlight.on_yank()
+  end,
+})
+
+-- Remember cursor position
+vim.api.nvim_create_autocmd("BufReadPost", {
+  desc = "Remember cursor position",
+  group = vim.api.nvim_create_augroup("RememberCursorPosition", { clear = false }),
+  command = [[if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | endif]],
 })
