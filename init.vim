@@ -35,10 +35,10 @@ set noshowcmd
 let mapleader = ";"
 let localmapleader = ";"
 
-highlight Normal NONE
-highlight NormalNC NONE
-highlight EndOfBuffer NONE
-
+" modify default colorscheme and statusline
+highlight Normal guibg=NONE ctermbg=NONE guifg=fg
+highlight NormalNC guibg=NONE ctermbg=NONE
+highlight EndOfBuffer guibg=NONE ctermbg=NONE
 " This is embarrasing
 " https://github.com/neovim/neovim/issues/20221
 " And here the solution
