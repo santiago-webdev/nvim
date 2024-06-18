@@ -4,7 +4,7 @@ local M = {
 }
 
 function M.config()
-  require("project_nvim").setup {
+  require("project_nvim").setup({
     active = true,
     on_config_done = nil,
     manual_mode = false,
@@ -15,7 +15,7 @@ function M.config()
     show_hidden = false,
     silent_chdir = true,
     scope_chdir = "global",
-  }
+  })
 end
 
 return M

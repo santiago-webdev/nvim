@@ -1,7 +1,7 @@
 vim.loader.enable()
 
-require "user.builtins.keymaps"
-require "user.builtins.colorscheme"
+require("user.builtins.keymaps")
+require("user.builtins.colorscheme")
 
 vim.g.var = "alpPrj"
 
@@ -30,12 +30,18 @@ vim.opt.ruler = false
 vim.opt.showcmd = false
 vim.opt.linebreak = true
 
-vim.opt.cpoptions:append {
+vim.opt.cpoptions:append({
   n = true,
-}
-vim.opt.fillchars:append { eob = "␗" }
-vim.opt.listchars:append { tab = "» ", trail = "·", nbsp = "␣" }
-vim.opt.whichwrap:append {
+})
+vim.opt.fillchars:append({
+  eob = "␗",
+})
+vim.opt.listchars:append({
+  tab = "» ",
+  trail = "·",
+  nbsp = "␣",
+})
+vim.opt.whichwrap:append({
   h = true,
   l = true,
   ["<"] = true,
@@ -43,7 +49,7 @@ vim.opt.whichwrap:append {
   ["~"] = true,
   ["["] = true,
   ["]"] = true,
-}
+})
 
 -- This is embarrasing
 -- https://github.com/neovim/neovim/issues/20221
@@ -57,7 +63,9 @@ vim.opt.statusline = "%#Comment#" .. string.rep("─", vim.api.nvim_win_get_widt
 vim.opt.number = true
 vim.opt.relativenumber = true
 
-local dynamic_gutter_numbers = vim.api.nvim_create_augroup("DynamicGutterNumbers", { clear = false })
+local dynamic_gutter_numbers = vim.api.nvim_create_augroup("DynamicGutterNumbers", {
+  clear = false,
+})
 
 vim.api.nvim_create_autocmd("InsertLeave", {
   desc = "Dynamic gutter numbers, they change based on mode",
@@ -96,6 +104,6 @@ vim.api.nvim_create_autocmd("BufWritePre", {
   desc = "Before writing a file, create necessary directories if missing",
   once = true,
   callback = function()
-    vim.fn.mkdir(vim.fn.expand "%:p:h", "p")
+    vim.fn.mkdir(vim.fn.expand("%:p:h"), "p")
   end,
 })

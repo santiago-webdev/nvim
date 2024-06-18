@@ -9,7 +9,7 @@ local M = {
 }
 
 function M.config()
-  require("nvim-treesitter.configs").setup {
+  require("nvim-treesitter.configs").setup({
     ensure_installed = { "lua" },
     ignore_install = { "" },
     sync_install = false,
@@ -56,7 +56,7 @@ function M.config()
         },
       },
     },
-  }
+  })
 end
 
 return M

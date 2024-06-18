@@ -1,4 +1,4 @@
-vim.filetype.add {
+vim.filetype.add({
   extension = {
     mdx = "markdown",
   },
@@ -13,4 +13,4 @@ vim.filetype.add {
     ["tsconfig*.json"] = "jsonc",
     [".*/%.vscode/.*%.json"] = "jsonc",
   },
-}
+})

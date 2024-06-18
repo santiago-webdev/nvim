@@ -12,11 +12,11 @@ local M = {
 function M.config()
   vim.g.skip_ts_context_commentstring_module = true
   ---@diagnostic disable: missing-fields
-  require("ts_context_commentstring").setup {
+  require("ts_context_commentstring").setup({
     enable_autocmd = false,
-  }
+  })
 
-  require("Comment").setup {
+  require("Comment").setup({
     ---Add a space b/w comment and the line
     padding = true,
     ---Whether the cursor should stay at its position
@@ -56,7 +56,7 @@ function M.config()
     pre_hook = require("ts_context_commentstring.integrations.comment_nvim").create_pre_hook(),
     ---Function to call after (un)comment
     -- post_hook = nil,
-  }
+  })
 end
 
 return M

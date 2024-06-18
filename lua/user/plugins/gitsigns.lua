@@ -5,13 +5,13 @@ local M = {
 }
 
 M.config = function()
-  require("gitsigns").setup {
+  require("gitsigns").setup({
     signcolumn = false,
     numhl = true,
     preview_config = {
       border = "rounded",
     },
-  }
+  })
 end
 
 return M

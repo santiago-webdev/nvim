@@ -37,11 +37,11 @@ function M.config()
   -- (Note: the `nvim-treesitter` plugin is *not* needed.)
   -- ufo uses the same query files for folding (queries/<lang>/folds.scm)
   -- performance and stability are better than `foldmethod=nvim_treesitter#foldexpr()`
-  require("ufo").setup {
+  require("ufo").setup({
     provider_selector = function()
       return { "treesitter", "indent" }
     end,
-  }
+  })
   --
   --
   -- -- Option 4: disable all providers for all buffers
