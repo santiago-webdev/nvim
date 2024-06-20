@@ -1,4 +1,27 @@
 vim.g.mapleader = ";"
 vim.g.localmapleader = ";"
 
-vim.keymap.set('n' , '<Esc>', '<cmd>nohlsearch<CR>')
+-- Disable unused keys for normal mode
+vim
+  .iter({
+    "<Space>",
+    "<Down>",
+    "<Up>",
+    "<Left>",
+    "<Right>",
+    "<Backspace",
+    "<Enter>",
+  })
+  :map(function(v)
+    return vim.keymap.set("n", v, "<Nop>")
+  end)
+
+-- Move line blacks of any visual selection around
+vim.keymap.set("v", "J", ":m '>+1<cr>gv=gv")
+vim.keymap.set("v", "K", ":m '<-2<cr>gv=gv")
+
+-- Keep the visual selection after using < or > motions
+vim.keymap.set("v", ">", ">gv")
+vim.keymap.set("v", "<", "<gv")
+
+vim.keymap.set("n", "<Leader>mm", vim.cmd.marks) -- Gets superseeded by Telescope mapping
