@@ -2,39 +2,45 @@ vim.loader.enable()
 
 require("user.builtins.keymaps")
 require("user.builtins.colorscheme")
+require("user.builtins.autocmds")
 
 vim.g.var = "alpPrj"
 
-vim.opt.clipboard = "unnamedplus"
+-- On {{{
 vim.opt.confirm = true
 vim.opt.smartcase = true
 vim.opt.autowrite = true
-vim.opt.mouse = "a"
 vim.opt.undofile = true
+vim.opt.list = true
+vim.opt.cursorline = true
+vim.opt.splitright = true
+vim.opt.splitbelow = true
+vim.opt.hlsearch = true
+vim.opt.linebreak = true
+-- }}}
+
+-- Off {{{
+vim.opt.ruler = false
+vim.opt.showcmd = false
+-- }}}
+
+-- Keymaps timeouts {{{
 vim.opt.updatetime = 300
 vim.opt.timeoutlen = 600
 vim.opt.ttimeoutlen = 10
+-- }}}
+
+vim.opt.clipboard = "unnamedplus"
+vim.opt.mouse = "a"
 vim.opt.inccommand = "split"
-vim.opt.list = true
 vim.opt.showbreak = "↪ "
 vim.opt.virtualedit = "all"
 vim.opt.scrolloff = 9999
 vim.opt.sidescrolloff = 999
-vim.opt.cursorline = true
 vim.opt.cursorlineopt = "number"
-vim.opt.splitright = true
-vim.opt.splitbelow = true
-vim.opt.hlsearch = true
-vim.opt.ruler = false
-vim.opt.showcmd = false
-vim.opt.linebreak = true
 
-vim.opt.cpoptions:append({
-  n = true,
-})
-vim.opt.fillchars:append({
-  eob = "␗",
-})
+vim.opt.cpoptions:append({ n = true })
+vim.opt.fillchars:append({ eob = "␗" })
 vim.opt.listchars:append({
   tab = "» ",
   trail = "·",
@@ -50,6 +56,7 @@ vim.opt.whichwrap:append({
   ["]"] = true,
 })
 
+-- Statusline {{{
 -- This is embarrasing
 -- https://github.com/neovim/neovim/issues/20221
 -- And here the solution
@@ -57,8 +64,9 @@ vim.opt.whichwrap:append({
 vim.opt.laststatus = 0
 vim.opt.cmdheight = 0
 vim.opt.statusline = "%#Comment#" .. string.rep("─", vim.api.nvim_win_get_width(0)) .. "%*"
+-- }}}
 
--- Dynamic gutter numbers, they change based on mode
+-- Dynamic gutter numbers, they change based on mode {{{
 vim.opt.number = true
 vim.opt.relativenumber = true
 
@@ -81,29 +89,5 @@ vim.api.nvim_create_autocmd("InsertEnter", {
     vim.opt.relativenumber = false
   end,
 })
-
--- Visual feedback when yanking text
-vim.api.nvim_create_autocmd("TextYankPost", {
-  desc = "Visual feedback when yanking text",
-  group = vim.api.nvim_create_augroup("YankFeedback", { clear = false }),
-  callback = function()
-    vim.highlight.on_yank()
-  end,
-})
-
--- Remember cursor position
-vim.api.nvim_create_autocmd("BufReadPost", {
-  desc = "Remember cursor position",
-  group = vim.api.nvim_create_augroup("RememberCursorPosition", { clear = false }),
-  command = [[if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | endif]],
-})
-
--- Before writing a file, create necessary directories if missing
-vim.api.nvim_create_autocmd("BufWritePre", {
-  desc = "Before writing a file, create necessary directories if missing",
-  group = vim.api.nvim_create_augroup("EnsureDirectoryStructure", { clear = false }),
-  once = true,
-  callback = function()
-    vim.fn.mkdir(vim.fn.expand("%:p:h"), "p")
-  end,
-})
+-- }}}
+-- vim:fdm=marker
