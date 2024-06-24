@@ -15,23 +15,24 @@ local M = {
 }
 
 local function lsp_keymaps(bufnr)
-  local opts = { noremap = true, silent = true }
-  local keymap = vim.api.nvim_buf_set_keymap
-  keymap(bufnr, "n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", opts)
-  keymap(bufnr, "n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", opts)
-  -- keymap(bufnr, "n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>", opts)
+  local opts = {
+    noremap = true,
+    silent = true,
+    buffer = bufnr,
+  }
+  vim.keymap.set("n", "gD", vim.lsp.buf.declaration, opts)
+  vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
   vim.keymap.set("n", "K", function()
     local winid = require("ufo").peekFoldedLinesUnderCursor()
     if not winid then
       vim.lsp.buf.hover()
     end
   end)
-  keymap(bufnr, "n", "gI", "<cmd>lua vim.lsp.buf.implementation()<CR>", opts)
-  keymap(bufnr, "n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>", opts)
-  keymap(bufnr, "n", "gl", "<cmd>lua vim.diagnostic.open_float()<CR>", opts)
-  vim.keymap.set("n", "gf", vim.lsp.buf.definition)
-  vim.keymap.set("n", "gd", vim.lsp.buf.definition) -- I'm unsure which one is better for this keymap
-  vim.keymap.set("n", "<Leader>cgn", vim.lsp.buf.rename)
+  vim.keymap.set("n", "gI", vim.lsp.buf.implementation, opts)
+  vim.keymap.set("n", "gr", vim.lsp.buf.references, opts)
+  vim.keymap.set("n", "gl", vim.diagnostic.open_float, opts)
+  vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
+  vim.keymap.set("n", "<Leader>cgn", vim.lsp.buf.rename, opts)
 end
 
 M.on_attach = function(client, bufnr)
@@ -80,15 +81,11 @@ function M.config()
     "tsserver",
     "astro",
     "pyright",
-    -- "basedpyright",
     "bashls",
-    -- "lemminx",
     "jsonls",
     "yamlls",
     "marksman",
     "eslint",
-    -- "taplo",
-    -- "rust_analyzer",
   }
 
   local default_diagnostic_config = {
