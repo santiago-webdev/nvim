@@ -8,6 +8,7 @@ spec("user.plugins.firenvim")
 spec("user.plugins.lspconfig")
 spec("user.plugins.mason")
 spec("user.plugins.none-ls")
+spec("user.plugins.nvim-jdtls")
 
 -- Plugins that replace builtin tooling
 spec("user.plugins.treesitter")

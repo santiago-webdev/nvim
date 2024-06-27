@@ -15,6 +15,7 @@ M.ensure_installed = {
   "pyright",
   "bashls",
   "jsonls",
+  "jdtls",
   "yamlls",
   "marksman",
   "rust_analyzer",
