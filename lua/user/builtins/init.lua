@@ -8,8 +8,8 @@ vim.g.var = "alpPrj"
 
 -- On {{{
 vim.opt.confirm = true
+vim.opt.ignorecase = true
 vim.opt.smartcase = true
-vim.opt.autowrite = true
 vim.opt.undofile = true
 vim.opt.list = true
 vim.opt.cursorline = true
@@ -87,6 +87,16 @@ vim.api.nvim_create_autocmd("InsertEnter", {
   group = dynamic_gutter_numbers,
   callback = function()
     vim.opt.relativenumber = false
+  end,
+})
+
+vim.opt.autowrite = true
+vim.opt.autowriteall = true
+vim.api.nvim_create_autocmd("FocusLost", {
+  desc = "Write to the file when you unfocus neovim",
+  group = dynamic_gutter_numbers,
+  callback = function()
+    vim.cmd("write")
   end,
 })
 -- }}}

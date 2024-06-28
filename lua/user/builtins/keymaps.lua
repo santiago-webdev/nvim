@@ -25,3 +25,4 @@ vim.keymap.set("v", ">", ">gv")
 vim.keymap.set("v", "<", "<gv")
 
 vim.keymap.set("n", "<Leader>mm", vim.cmd.marks) -- Gets superseeded by Telescope mapping
+vim.keymap.set("n", "//", "/<Up>") -- UX improvement to quickly come back to the last thing you searched for
