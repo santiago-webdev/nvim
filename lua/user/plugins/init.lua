@@ -9,6 +9,7 @@ spec("user.plugins.lspconfig")
 spec("user.plugins.mason")
 spec("user.plugins.none-ls")
 spec("user.plugins.nvim-jdtls")
+spec("user.plugins.accelerated-jk")
 
 -- Plugins that replace builtin tooling
 spec("user.plugins.treesitter")
