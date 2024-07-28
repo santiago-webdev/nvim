@@ -142,4 +142,4 @@ vim.api.nvim_create_autocmd("FocusLost", {
   end,
 })
 
-require "user.plugins"
+require("user.plugins")
