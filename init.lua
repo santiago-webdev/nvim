@@ -69,6 +69,7 @@ vim.opt.list = true
 vim.opt.cursorline = true
 vim.opt.splitright = true
 vim.opt.splitbelow = true
+vim.opt.termguicolors = true
 vim.opt.hlsearch = true
 vim.opt.linebreak = true
 vim.opt.ruler = false
@@ -154,6 +155,7 @@ spec("user.plugins.mason")
 spec("user.plugins.none-ls")
 spec("user.plugins.nvim-jdtls")
 spec("user.plugins.accelerated-jk")
+spec("user.plugins.nvim-colorizer")
 
 -- Plugins that replace builtin tooling
 spec("user.plugins.treesitter")
