@@ -1,6 +1,6 @@
 local M = {
   "glacambre/firenvim",
-  build = ":call firenvim#install(0)"
+  build = ":call firenvim#install(0)",
 }
 
 function M.config()
