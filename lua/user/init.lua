@@ -1,66 +1,7 @@
 vim.loader.enable()
-
+vim.g.var = "alpPrj"
 vim.g.mapleader = ";"
 vim.g.localmapleader = ";"
-
--- Disable unused keys for normal mode
-vim
-  .iter({
-    "<Space>",
-    "<Down>",
-    "<Up>",
-    "<Left>",
-    "<Right>",
-    "<Backspace",
-    "<Enter>",
-  })
-  :map(function(v)
-    return vim.keymap.set("n", v, "<Nop>")
-  end)
-
--- Move line blacks of any visual selection around
-vim.keymap.set("v", "J", ":m '>+1<cr>gv=gv")
-vim.keymap.set("v", "K", ":m '<-2<cr>gv=gv")
-
--- Keep the visual selection after using < or > motions
-vim.keymap.set("v", ">", ">gv")
-vim.keymap.set("v", "<", "<gv")
-
-vim.keymap.set("n", "<Leader>mm", vim.cmd.marks) -- Gets superseeded by Telescope mapping
-vim.keymap.set("n", "//", "/<Up>") -- UX improvement to quickly come back to the last thing you searched for
-
-vim.api.nvim_set_hl(0, "Cursor", { reverse = true })
-
--- Remove background
-vim.api.nvim_set_hl(0, "Normal", {})
-vim.api.nvim_set_hl(0, "NormalNC", {})
-vim.api.nvim_set_hl(0, "EndOfBuffer", {})
-
-vim.api.nvim_create_autocmd("TextYankPost", {
-  desc = "Visual feedback when yanking text",
-  group = vim.api.nvim_create_augroup("YankFeedback", { clear = false }),
-  callback = function()
-    vim.highlight.on_yank()
-  end,
-})
-
-vim.api.nvim_create_autocmd("BufReadPost", {
-  desc = "Remember cursor position",
-  group = vim.api.nvim_create_augroup("RememberCursorPosition", { clear = false }),
-  command = [[if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | endif]],
-})
-
-vim.api.nvim_create_autocmd("BufWritePre", {
-  desc = "Before writing a file, create necessary directories if missing",
-  group = vim.api.nvim_create_augroup("EnsureDirectoryStructure", { clear = false }),
-  once = true,
-  callback = function()
-    vim.fn.mkdir(vim.fn.expand("%:p:h"), "p")
-  end,
-})
-
-vim.g.var = "alpPrj"
-
 vim.opt.confirm = true
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
@@ -85,6 +26,7 @@ vim.opt.virtualedit = "all"
 vim.opt.scrolloff = 9999
 vim.opt.sidescrolloff = 999
 vim.opt.cursorlineopt = "number"
+
 vim.opt.cpoptions:append({ n = true })
 vim.opt.fillchars:append({ eob = "␗" })
 vim.opt.listchars:append({
@@ -142,3 +84,30 @@ vim.api.nvim_create_autocmd("FocusLost", {
     vim.cmd("write")
   end,
 })
+
+vim.api.nvim_create_autocmd("TextYankPost", {
+  desc = "Visual feedback when yanking text",
+  group = vim.api.nvim_create_augroup("YankFeedback", { clear = false }),
+  callback = function()
+    vim.highlight.on_yank()
+  end,
+})
+
+vim.api.nvim_create_autocmd("BufReadPost", {
+  desc = "Remember cursor position",
+  group = vim.api.nvim_create_augroup("RememberCursorPosition", { clear = false }),
+  command = [[if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | endif]],
+})
+
+vim.api.nvim_create_autocmd("BufWritePre", {
+  desc = "Before writing a file, create necessary directories if missing",
+  group = vim.api.nvim_create_augroup("EnsureDirectoryStructure", { clear = false }),
+  once = true,
+  callback = function()
+    vim.fn.mkdir(vim.fn.expand("%:p:h"), "p")
+  end,
+})
+
+require("user.keys")
+require("user.colors")
+require("user.plugins")
