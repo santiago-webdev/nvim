@@ -26,3 +26,4 @@ vim.keymap.set("n", "//", "/<Up>") -- UX improvement to quickly come back to the
 
 vim.keymap.set("n", "<Tab>", vim.cmd.bnext)
 vim.keymap.set("n", "<S-Tab>", vim.cmd.bprevious)
+vim.keymap.set("n", "d<Tab>", vim.cmd.bdelete)
