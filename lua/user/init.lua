@@ -110,4 +110,3 @@ vim.api.nvim_create_autocmd("BufWritePre", {
 
 require("user.keys")
 require("user.colors")
-require("user.plugins")
