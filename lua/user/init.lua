@@ -52,6 +52,9 @@ vim.opt.laststatus = 0
 vim.opt.cmdheight = 0
 vim.opt.statusline = "%#Comment#" .. string.rep("─", vim.api.nvim_win_get_width(0)) .. "%*"
 
+vim.opt.title = true
+vim.opt.titlestring = ""
+
 vim.opt.number = true
 vim.opt.relativenumber = true
 
