@@ -111,5 +111,13 @@ vim.api.nvim_create_autocmd("BufWritePre", {
   end,
 })
 
+vim.api.nvim_create_autocmd("BufWritePre", {
+  once = true,
+  desc = "Create missing directories when writing to a file",
+  callback = function ()
+    vim.fn.mkdir(vim.fn.expand('%:p:h'), 'p')
+  end
+})
+
 require("user.keys")
 require("user.colors")
