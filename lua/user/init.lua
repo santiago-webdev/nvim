@@ -55,6 +55,6 @@ vim.opt.statusline = "%#Comment#" .. string.rep("─", vim.api.nvim_win_get_widt
 vim.opt.title = true
 vim.opt.titlestring = ""
 
-require("user.keys")
+require("user.keymaps")
 require("user.colors")
 require("user.triggered")
