@@ -17,7 +17,4 @@ M.server_list = {
   "yamlls",
 }
 
--- TODO: start using this and maybe an autocmd to add them, make it simpler
-M.keymaps = {}
-
 return M
