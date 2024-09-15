@@ -12,6 +12,7 @@ spec("user.plugins.nvim-colorizer")
 --- LSP
 spec("user.plugins.mason")
 spec("user.plugins.lspconfig")
+spec("user.plugins.none-ls")
 
 --- Plugins that replace builtin tooling
 spec("user.plugins.treesitter")
