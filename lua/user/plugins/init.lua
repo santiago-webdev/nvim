@@ -11,6 +11,7 @@ spec("user.plugins.nvim-colorizer")
 
 --- LSP
 spec("user.plugins.mason")
+spec("user.plugins.schemastore")
 spec("user.plugins.lspconfig")
 spec("user.plugins.none-ls")
 
