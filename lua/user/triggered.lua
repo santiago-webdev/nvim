@@ -1,6 +1,4 @@
-local dynamic_gutter_numbers = vim.api.nvim_create_augroup("DynamicGutterNumbers", {
-  clear = false,
-})
+local dynamic_gutter_numbers = vim.api.nvim_create_augroup("DynamicGutterNumbers", { clear = false })
 
 vim.opt.number = true
 vim.opt.relativenumber = true

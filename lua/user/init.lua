@@ -1,7 +1,13 @@
 vim.loader.enable()
+
+require("user.keymaps")
+require("user.colors")
+require("user.triggered")
+
 vim.g.var = "alpPrj"
 vim.g.mapleader = ";"
-vim.g.localmapleader = ";"
+vim.g.localmapleader = vim.g.mapleader
+
 vim.opt.confirm = true
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
@@ -13,8 +19,6 @@ vim.opt.splitbelow = true
 vim.opt.termguicolors = true
 vim.opt.hlsearch = true
 vim.opt.linebreak = true
-vim.opt.ruler = false
-vim.opt.showcmd = false
 vim.opt.updatetime = 300
 vim.opt.timeoutlen = 600
 vim.opt.ttimeoutlen = 10
@@ -52,9 +56,8 @@ vim.opt.laststatus = 0
 vim.opt.cmdheight = 0
 vim.opt.statusline = "%#Comment#" .. string.rep("─", vim.api.nvim_win_get_width(0)) .. "%*"
 
+vim.opt.ruler = false
+vim.opt.showcmd = false
+
 vim.opt.title = true
 vim.opt.titlestring = ""
-
-require("user.keymaps")
-require("user.colors")
-require("user.triggered")
