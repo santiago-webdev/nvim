@@ -113,7 +113,7 @@ vim.api.nvim_create_autocmd("BufWritePre", {
 
 vim.api.nvim_create_autocmd("BufWritePre", {
   once = true,
-  desc = "Create missing directories when writing to a file",
+  desc = "Create missing dirs before writing. Same as `:write ++p` or from a shell `mkdir -p`",
   callback = function ()
     vim.fn.mkdir(vim.fn.expand('%:p:h'), 'p')
   end
