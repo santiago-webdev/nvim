@@ -3,6 +3,7 @@ vim.loader.enable()
 require("user.keymaps")
 require("user.colors")
 require("user.triggered")
+require("user.notify-send")
 
 vim.g.var = "alpPrj"
 vim.g.mapleader = ";"
@@ -30,6 +31,9 @@ vim.opt.virtualedit = "all"
 vim.opt.scrolloff = 9999
 vim.opt.sidescrolloff = 999
 vim.opt.cursorlineopt = "number"
+vim.opt.tabstop = 4
+vim.opt.shiftwidth = vim.o.tabstop
+vim.opt.shiftround = true
 
 vim.opt.cpoptions:append({ n = true })
 vim.opt.fillchars:append({ eob = "␗" })
