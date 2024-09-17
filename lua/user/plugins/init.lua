@@ -19,5 +19,6 @@ spec("user.plugins.none-ls")
 spec("user.plugins.treesitter")
 spec("user.plugins.comment")
 spec("user.plugins.ufo")
+spec("user.plugins.cmp")
 
 require("user.plugins.lazy")
