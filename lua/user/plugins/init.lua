@@ -8,6 +8,7 @@ spec("user.plugins.indentlines")
 spec("user.plugins.firenvim")
 spec("user.plugins.accelerated-jk")
 spec("user.plugins.nvim-colorizer")
+spec("user.plugins.autopairs")
 
 --- LSP
 spec("user.plugins.mason")
