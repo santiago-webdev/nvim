@@ -1,6 +1,6 @@
 vim.loader.enable()
 
-require('user.set')
+require("user.set")
 require("user.keymaps")
 require("user.colors")
 require("user.triggered")

@@ -28,4 +28,8 @@ vim.keymap.set("n", "<Tab>", vim.cmd.bnext)
 vim.keymap.set("n", "<S-Tab>", vim.cmd.bprevious)
 vim.keymap.set("n", "d<Tab>", vim.cmd.bdelete)
 
+-- To avoid using vim.opt.clipboard = "unnamedplus", and more comfortably working with the clipboard
+vim.keymap.set({'n', 'x', 'o'}, 'gy', '"+y', {desc = 'Copy to clipboard'})
+vim.keymap.set({'n', 'x', 'o'}, 'gp', '"+p', {desc = 'Paste clipboard text'})
+
 require("user.lsp.keymaps")

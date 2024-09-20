@@ -1,4 +1,4 @@
-vim.api.nvim_create_autocmd("ColorScheme", {
+vim.api.nvim_create_autocmd("VimEnter", {
   callback = function()
     vim.api.nvim_set_hl(0, "Cursor", { reverse = false })
     vim.api.nvim_set_hl(0, "Visual", { reverse = true })
