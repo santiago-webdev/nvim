@@ -8,6 +8,8 @@ vim.filetype.add({
     ["Brewfile"] = "ruby",
     [".editorconfig"] = "ini",
     [".eslintrc.json"] = "jsonc",
+    [".justfile"] = "make",
+    ["Justfile"] = "make",
   },
   pattern = {
     ["tsconfig*.json"] = "jsonc",
