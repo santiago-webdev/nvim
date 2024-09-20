@@ -1,14 +1,6 @@
 vim.loader.enable()
 
-require("user.set")
-require("user.keymaps")
-require("user.colors")
-require("user.triggered")
-require("user.notify-send")
-
 vim.g.var = "alpPrj"
-vim.g.mapleader = ";"
-vim.g.localmapleader = vim.g.mapleader
 
 vim.opt.cpoptions:append({ n = true })
 vim.opt.fillchars:append({ eob = "␗" })
@@ -40,3 +32,47 @@ vim.opt.showcmd = false
 
 vim.opt.title = true
 vim.opt.titlestring = ""
+
+vim.opt.confirm = true
+vim.opt.ignorecase = true
+vim.opt.smartcase = true
+vim.opt.undofile = true
+vim.opt.list = true
+vim.opt.cursorline = true
+-- vim.opt.cursorcolumn = true
+vim.opt.cursorlineopt = "number" -- both
+vim.opt.splitright = true
+vim.opt.splitbelow = true
+vim.opt.termguicolors = true
+vim.opt.hlsearch = false -- if true, clear with <C-l>
+vim.opt.linebreak = true
+vim.opt.updatetime = 300
+vim.opt.timeoutlen = 600
+vim.opt.ttimeoutlen = 10
+-- vim.opt.clipboard = "unnamedplus" -- See keymaps
+vim.opt.mouse = "a"
+vim.opt.inccommand = "split"
+vim.opt.showbreak = "↪ "
+vim.opt.virtualedit = "all"
+vim.opt.scrolloff = 9999
+vim.opt.sidescrolloff = 999
+vim.opt.tabstop = 4
+vim.opt.shiftwidth = vim.o.tabstop
+vim.opt.shiftround = true
+vim.opt.signcolumn = "yes:1"
+
+vim.api.nvim_create_autocmd("VimEnter", {
+  callback = function()
+    vim.api.nvim_set_hl(0, "Cursor", { reverse = false })
+    vim.api.nvim_set_hl(0, "Visual", { reverse = true })
+
+    -- Remove background
+    vim.api.nvim_set_hl(0, "Normal", {})
+    vim.api.nvim_set_hl(0, "NormalNC", {})
+    vim.api.nvim_set_hl(0, "EndOfBuffer", {})
+  end,
+})
+
+require("user.keymaps")
+require("user.triggered")
+require("user.notify-send")

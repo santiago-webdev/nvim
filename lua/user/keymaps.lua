@@ -1,3 +1,6 @@
+vim.g.mapleader = ";" -- vim.keycode('<Space>')
+vim.g.localmapleader = vim.g.mapleader
+
 -- Disable unused keys for normal mode
 vim
   .iter({
@@ -29,7 +32,7 @@ vim.keymap.set("n", "<S-Tab>", vim.cmd.bprevious)
 vim.keymap.set("n", "d<Tab>", vim.cmd.bdelete)
 
 -- To avoid using vim.opt.clipboard = "unnamedplus", and more comfortably working with the clipboard
-vim.keymap.set({'n', 'x', 'o'}, 'gy', '"+y', {desc = 'Copy to clipboard'})
-vim.keymap.set({'n', 'x', 'o'}, 'gp', '"+p', {desc = 'Paste clipboard text'})
+vim.keymap.set({ "n", "x", "o" }, "gy", '"+y', { desc = "Copy to clipboard" })
+vim.keymap.set({ "n", "x", "o" }, "gp", '"+p', { desc = "Paste clipboard text" })
 
 require("user.lsp.keymaps")
