@@ -8,7 +8,7 @@ local M = {
 
 function M.config()
   require("mason").setup({ ui = { border = "rounded" } })
-  require("mason-lspconfig").setup({ ensure_installed = require("user.lsp").server_list })
+  require("mason-lspconfig").setup({ ensure_installed = require("user").lsp_settings().server_list })
 end
 
 return M
