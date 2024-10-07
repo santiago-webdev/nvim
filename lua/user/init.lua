@@ -2,7 +2,7 @@ local M = {}
 
 require("user.notify-send")
 
-function M.keymaps()
+function M.keymaps() --- {{{
   vim.g.mapleader = ";" -- vim.keycode('<Space>')
   vim.g.localmapleader = vim.g.mapleader
 
@@ -64,9 +64,9 @@ function M.keymaps()
       end, { desc = "Toggle inlay hints" })
     end,
   })
-end
+end --- }}}
 
-function M.settings()
+function M.settings() --- {{{
   vim.loader.enable()
 
   vim.g.var = "alpPrj"
@@ -112,7 +112,6 @@ function M.settings()
   vim.opt.cursorlineopt = "number" -- both
   vim.opt.splitright = true
   vim.opt.splitbelow = true
-  vim.opt.termguicolors = true
   vim.opt.hlsearch = false -- if true, clear with <C-l>
   vim.opt.linebreak = true
   vim.opt.updatetime = 300
@@ -129,9 +128,10 @@ function M.settings()
   vim.opt.shiftwidth = vim.o.tabstop
   vim.opt.shiftround = true
   vim.opt.signcolumn = "yes:1"
-end
+end --- }}}
 
-function M.color_settings()
+function M.color_settings() --- {{{
+  vim.opt.termguicolors = true
   vim.api.nvim_create_autocmd("VimEnter", {
     callback = function()
       vim.api.nvim_set_hl(0, "Cursor", { reverse = false })
@@ -143,9 +143,9 @@ function M.color_settings()
       vim.api.nvim_set_hl(0, "EndOfBuffer", {})
     end,
   })
-end
+end --- }}}
 
-function M.autocmds()
+function M.autocmds() --- {{{
   local dynamic_gutter_numbers = vim.api.nvim_create_augroup("DynamicGutterNumbers", { clear = false })
 
   vim.opt.number = true
@@ -206,9 +206,9 @@ function M.autocmds()
       vim.fn.mkdir(vim.fn.expand("%:p:h"), "p")
     end,
   })
-end
+end --- }}}
 
-function M.lsp_settings()
+function M.lsp_settings() --- {{{
   local server_list = {
     "astro",
     "bashls",
@@ -233,7 +233,7 @@ function M.lsp_settings()
   end
 
   return server_list, on_attach
-end
+end --- }}}
 
 M.keymaps()
 M.settings()
@@ -241,3 +241,4 @@ M.color_settings()
 M.autocmds()
 
 return M
+-- vim:fdm=marker
