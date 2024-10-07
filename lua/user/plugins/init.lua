@@ -1,6 +1,5 @@
 require("user.plugins.spec")
 
-spec("user.plugins.colorscheme")
 spec("user.plugins.gitsigns")
 spec("user.plugins.project")
 spec("user.plugins.telescope")
