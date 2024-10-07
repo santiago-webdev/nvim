@@ -40,6 +40,10 @@ function M.keymaps()
   vim.keymap.set({ "n", "x", "o" }, "gy", '"+y', { desc = "Copy to clipboard" })
   vim.keymap.set({ "n", "x", "o" }, "gp", '"+p', { desc = "Paste clipboard text" })
 
+  vim.keymap.set({ "n", "x", "o" }, "<C-l>", function()
+    vim.opt.hlsearch = not vim.o.hlsearch and true
+  end, { desc = "Extend the default <C-l> keybind to work as a toggle" })
+
   vim.api.nvim_create_autocmd("LspAttach", {
     callback = function(args)
       local opts = { buffer = args.buf, noremap = true, silent = true }
