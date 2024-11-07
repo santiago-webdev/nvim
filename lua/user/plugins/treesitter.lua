@@ -2,9 +2,8 @@ local M = {
   "nvim-treesitter/nvim-treesitter",
   build = ":TSUpdate",
   dependencies = {
-    {
-      "nvim-treesitter/nvim-treesitter-textobjects",
-    },
+    { "nvim-treesitter/nvim-treesitter-textobjects" },
+    { "nushell/tree-sitter-nu", build = ":TSUpdate nu" },
   },
 }
 

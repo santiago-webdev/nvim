@@ -36,9 +36,9 @@ function M.keymaps() --- {{{
   vim.keymap.set("n", "<S-Tab>", vim.cmd.bprevious)
   vim.keymap.set("n", "d<Tab>", vim.cmd.bdelete)
 
-  -- To avoid using vim.opt.clipboard = "unnamedplus", and more comfortably working with the clipboard
-  vim.keymap.set({ "n", "x", "o" }, "gy", '"+y', { desc = "Copy to clipboard" })
-  vim.keymap.set({ "n", "x", "o" }, "gp", '"+p', { desc = "Paste clipboard text" })
+  -- -- To avoid using vim.opt.clipboard = "unnamedplus", and more comfortably working with the clipboard
+  -- vim.keymap.set({ "n", "x", "o" }, "gy", '"+y', { desc = "Copy to clipboard" })
+  -- vim.keymap.set({ "n", "x", "o" }, "gp", '"+p', { desc = "Paste clipboard text" })
 
   vim.keymap.set({ "n", "x", "o" }, "<C-l>", function()
     vim.opt.hlsearch = not vim.o.hlsearch and true
@@ -112,12 +112,12 @@ function M.settings() --- {{{
   vim.opt.cursorlineopt = "number" -- both
   vim.opt.splitright = true
   vim.opt.splitbelow = true
-  vim.opt.hlsearch = false -- if true, clear with <C-l>
+  vim.opt.hlsearch = true -- if true, clear with <C-l>
   vim.opt.linebreak = true
   vim.opt.updatetime = 300
   vim.opt.timeoutlen = 600
   vim.opt.ttimeoutlen = 10
-  -- vim.opt.clipboard = "unnamedplus" -- See keymaps
+  vim.opt.clipboard = "unnamedplus" -- See keymaps
   vim.opt.mouse = "a"
   vim.opt.inccommand = "split"
   vim.opt.showbreak = "↪ "
@@ -141,6 +141,14 @@ function M.color_settings() --- {{{
       vim.api.nvim_set_hl(0, "Normal", {})
       vim.api.nvim_set_hl(0, "NormalNC", {})
       vim.api.nvim_set_hl(0, "EndOfBuffer", {})
+
+      -- Fix for Zellij, Ptyxis and GNOME in general, I'm not debugging this :X
+      local bg = vim.fn.system("gsettings get org.gnome.desktop.interface gtk-theme | grep -i Adwaita && echo dark")
+      if bg:match("dark") then
+        vim.o.background = "dark"
+      else
+        vim.o.background = "light"
+      end
     end,
   })
 end --- }}}

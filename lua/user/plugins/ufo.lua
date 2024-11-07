@@ -31,7 +31,6 @@ function M.config()
   --     })
   -- end
   -- require('ufo').setup()
-  --
 
   -- Option 3: treesitter as a main provider instead
   -- (Note: the `nvim-treesitter` plugin is *not* needed.)
@@ -42,8 +41,7 @@ function M.config()
       return { "treesitter", "indent" }
     end,
   })
-  --
-  --
+
   -- -- Option 4: disable all providers for all buffers
   -- -- Not recommend, AFAIK, the ufo's providers are the best performance in Neovim
   -- require('ufo').setup({
